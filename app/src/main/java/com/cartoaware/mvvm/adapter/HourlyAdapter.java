@@ -39,16 +39,16 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.HourlyView
     }
 
     class HourlyViewHolder extends RecyclerView.ViewHolder {
-        private ViewHourItemBinding restaurantItemBinding;
+        private ViewHourItemBinding hourItemBinding;
 
         HourlyViewHolder(ViewHourItemBinding binding) {
             super(binding.getRoot());
-            this.restaurantItemBinding = binding;
+            this.hourItemBinding = binding;
         }
 
         void bindHourly(Hourly hourly) {
-            restaurantItemBinding.setHourly(hourly);
-            restaurantItemBinding.executePendingBindings();
+            hourItemBinding.setHourly(hourly);
+            hourItemBinding.executePendingBindings();
         }
     }
 }

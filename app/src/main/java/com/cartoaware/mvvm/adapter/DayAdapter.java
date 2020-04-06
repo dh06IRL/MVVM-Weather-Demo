@@ -39,16 +39,16 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DailyViewHolder>
     }
 
     class DailyViewHolder extends RecyclerView.ViewHolder {
-        private ViewDayItemBinding restaurantItemBinding;
+        private ViewDayItemBinding dayItemBinding;
 
         DailyViewHolder(ViewDayItemBinding binding) {
             super(binding.getRoot());
-            this.restaurantItemBinding = binding;
+            this.dayItemBinding = binding;
         }
 
         void bindDaily(Daily daily) {
-            restaurantItemBinding.setDay(daily);
-            restaurantItemBinding.executePendingBindings();
+            dayItemBinding.setDay(daily);
+            dayItemBinding.executePendingBindings();
         }
     }
 }
