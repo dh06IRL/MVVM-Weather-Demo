@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="day"
+            type="com.cartoaware.mvvm.model.weather.Daily" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/restaurant_holder"
+        android:background="#37474f"
+        android:layout_margin="2dp"
+        android:layout_width="200dp"
+        android:layout_height="150dp" >
+
+        <ImageView
+            android:id="@+id/restaurant_img"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:weatherImgUrl="@{day.weather}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/restaurant_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{`` + day.temp.day + '\u00B0'}"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:textColor="@color/textColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/restaurant_img"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.36"
+            tools:text="78.19" />
+
+        <TextView
+            android:id="@+id/restaurant_categories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/textColor"
+            app:weatherDesc="@{day.weather}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/restaurant_img"
+            app:layout_constraintTop_toBottomOf="@+id/restaurant_name"
+            tools:text="1h mm" />
+
+        <TextView
+            android:id="@+id/restaurant_delivery_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="italic"
+            android:textColor="@color/textColor"
+            app:weatherTimeDay="@{day.dt}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.90"
+            tools:text="10:30 am" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
